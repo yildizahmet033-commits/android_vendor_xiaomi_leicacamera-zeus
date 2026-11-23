@@ -7,7 +7,6 @@ soong_namespace {
 android_app_import {
     name: "LeicaMiuiCamera",
     apk: "proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk",
-    stem: "MiuiCamera",
     presigned: true,
     preprocessed: true,
     privileged: true,
