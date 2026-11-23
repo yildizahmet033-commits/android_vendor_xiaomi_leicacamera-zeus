@@ -1,0 +1,59 @@
+// HyperOS Leica Camera for Xiaomi 12 Pro (zeus) - ROM integration
+// by Ahmet033 - https://github.com/yildizahmet033-commits/zeus-hyperos-leica-camera
+
+soong_namespace {
+}
+
+android_app_import {
+    name: "LeicaMiuiCamera",
+    apk: "proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk",
+    stem: "MiuiCamera",
+    presigned: true,
+    preprocessed: true,
+    privileged: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    overrides: ["Aperture", "Camera2"],
+}
+
+cc_defaults {
+    name: "leicacamera_lib_defaults",
+    compile_multilib: "64",
+    check_elf_files: false,
+}
+
+cc_prebuilt_library_shared {
+    name: "libcamera_algoup_jni.xiaomi_leica",
+    defaults: ["leicacamera_lib_defaults"],
+    stem: "libcamera_algoup_jni.xiaomi",
+    srcs: ["proprietary/system/lib64/libcamera_algoup_jni.xiaomi.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libcamera_mianode_jni.xiaomi_leica",
+    defaults: ["leicacamera_lib_defaults"],
+    stem: "libcamera_mianode_jni.xiaomi",
+    srcs: ["proprietary/system/lib64/libcamera_mianode_jni.xiaomi.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libgui_shim_miuicamera_leica",
+    defaults: ["leicacamera_lib_defaults"],
+    stem: "libgui_shim_miuicamera",
+    srcs: ["proprietary/system/lib64/libgui_shim_miuicamera.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "libmicampostproc_client_leica",
+    defaults: ["leicacamera_lib_defaults"],
+    stem: "libmicampostproc_client",
+    srcs: ["proprietary/system/lib64/libmicampostproc_client.so"],
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.xiaomi.hardware.campostproc@1.0_leica",
+    defaults: ["leicacamera_lib_defaults"],
+    stem: "vendor.xiaomi.hardware.campostproc@1.0",
+    srcs: ["proprietary/system/lib64/vendor.xiaomi.hardware.campostproc@1.0.so"],
+}

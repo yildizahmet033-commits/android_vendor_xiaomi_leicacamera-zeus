@@ -1,0 +1,67 @@
+# priv_app
+hal_client_domain(priv_app, vendor_hal_camerapostproc_xiaomi)
+allow priv_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+binder_call(priv_app, hal_camera_default)
+binder_call(hal_camera_default, priv_app)
+binder_call(priv_app, vendor_hal_camerapostproc_xiaomi)
+get_prop(priv_app, vendor_camera_sensor_prop)
+get_prop(priv_app, vendor_panel_info_prop)
+get_prop(priv_app, vendor_display_prop)
+allow priv_app adsprpcd_file:dir { getattr open read search };
+allow priv_app vendor_xdsp_device:chr_file { ioctl open read write };
+allow priv_app vendor_qdsp_device:chr_file { ioctl open read write };
+allow priv_app vendor_camera_data_file:dir { append map r_dir_perms write };
+allow priv_app vendor_camera_data_file:file { getattr open read write };
+
+# priv_app_36
+hal_client_domain(priv_app_36, vendor_hal_camerapostproc_xiaomi)
+allow priv_app_36 vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+binder_call(priv_app_36, hal_camera_default)
+binder_call(hal_camera_default, priv_app_36)
+binder_call(priv_app_36, vendor_hal_camerapostproc_xiaomi)
+get_prop(priv_app_36, vendor_camera_sensor_prop)
+get_prop(priv_app_36, vendor_panel_info_prop)
+get_prop(priv_app_36, vendor_display_prop)
+allow priv_app_36 adsprpcd_file:dir { getattr open read search };
+allow priv_app_36 vendor_xdsp_device:chr_file { ioctl open read write };
+allow priv_app_36 vendor_qdsp_device:chr_file { ioctl open read write };
+allow priv_app_36 vendor_camera_data_file:dir { append map r_dir_perms write };
+allow priv_app_36 vendor_camera_data_file:file { getattr open read write };
+
+# platform_app
+hal_client_domain(platform_app, vendor_hal_camerapostproc_xiaomi)
+allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+binder_call(platform_app, hal_camera_default)
+binder_call(hal_camera_default, platform_app)
+binder_call(platform_app, vendor_hal_camerapostproc_xiaomi)
+get_prop(platform_app, vendor_camera_sensor_prop)
+get_prop(platform_app, vendor_panel_info_prop)
+get_prop(platform_app, vendor_display_prop)
+allow platform_app adsprpcd_file:dir { getattr open read search };
+allow platform_app vendor_xdsp_device:chr_file { ioctl open read write };
+allow platform_app vendor_qdsp_device:chr_file { ioctl open read write };
+allow platform_app vendor_camera_data_file:dir { append map r_dir_perms write };
+allow platform_app vendor_camera_data_file:file { getattr open read write };
+
+# platform_app_36
+hal_client_domain(platform_app_36, vendor_hal_camerapostproc_xiaomi)
+allow platform_app_36 vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+binder_call(platform_app_36, hal_camera_default)
+binder_call(hal_camera_default, platform_app_36)
+binder_call(platform_app_36, vendor_hal_camerapostproc_xiaomi)
+get_prop(platform_app_36, vendor_camera_sensor_prop)
+get_prop(platform_app_36, vendor_panel_info_prop)
+get_prop(platform_app_36, vendor_display_prop)
+allow platform_app_36 adsprpcd_file:dir { getattr open read search };
+allow platform_app_36 vendor_xdsp_device:chr_file { ioctl open read write };
+allow platform_app_36 vendor_qdsp_device:chr_file { ioctl open read write };
+allow platform_app_36 vendor_camera_data_file:dir { append map r_dir_perms write };
+allow platform_app_36 vendor_camera_data_file:file { getattr open read write };
+
+# zeus / Android 17: extra permissions seen as denials with the module build
+get_prop(priv_app_36, vendor_audio_prop)
+get_prop(priv_app_36, vendor_camera_p3enable_prop)
+get_prop(priv_app, vendor_audio_prop)
+get_prop(priv_app, vendor_camera_p3enable_prop)
+allow priv_app_36 app_data_file:file execute;
+allow priv_app app_data_file:file execute;
