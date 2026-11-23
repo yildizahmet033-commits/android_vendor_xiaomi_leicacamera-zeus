@@ -9,6 +9,8 @@ android_app_import {
     apk: "proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk",
     presigned: true,
     preprocessed: true,
+    // Same APK as the tested module (compressed dex, 4-byte aligned)
+    skip_preprocessed_apk_checks: true,
     privileged: true,
     dex_preopt: {
         enabled: false,
