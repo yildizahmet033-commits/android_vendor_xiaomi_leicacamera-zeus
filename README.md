@@ -5,7 +5,7 @@ up to 60x zoom, 1080p 60 FPS, portrait, beautify) inside an AOSP based Android 1
 (tested on Evolution X 12).
 
 The camera APK is the one built by the patcher in
-https://github.com/yildizahmet033-commits/zeus-hyperos-leica-camera (release v1.1).
+https://github.com/yildizahmet033-commits/zeus-hyperos-leica-camera (release v1.2).
 
 ## Usage
 
